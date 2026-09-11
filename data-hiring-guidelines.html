@@ -1,5 +1,5 @@
 <title>Data Engineering Hiring Process</title>
-<meta name="description" content="Two-round hiring process for Data Engineers, Seniors, Leads and Architects: candidate roster, factor scorecards and debrief." />
+<meta name="description" content="Two-round hiring process for Data Engineers, Seniors, Leads and Architects — candidate roster, factor scorecards and debrief." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" />
@@ -7,7 +7,7 @@
 
 <style>
   :root {
-    /* Presidio DE Hiring, light. Warm-grey ground, navy headings, Presidio blue for identity, gold accent on primary actions only. */
+    /* Presidio DE Hiring — light. Warm-grey ground, navy headings, Presidio blue for identity, gold accent on primary actions only. */
     --bg: #f1f1ef; --surface: #ffffff; --surface-2: #eae9e5; --surface-3: #deddd7;
     --ink: #16283a; --ink-2: #3f4a57; --ink-3: #78828d;
     --line: #e0e0d9; --line-strong: #cbcbc3;
@@ -98,7 +98,7 @@
   .callout { border: 1px solid var(--line); background: var(--surface); padding: 22px 24px; border-radius: var(--radius); font-size: 14.5px; line-height: 1.65; color: var(--ink-2); max-width: 84ch; box-shadow: var(--shadow-sm); }
   .callout strong { font-weight: 700; color: var(--ink); }
 
-  /* how it runs: numbered step flow */
+  /* how it runs — numbered step flow */
   .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; align-items: start; }
   .step { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px 22px; box-shadow: var(--shadow-sm); transition: box-shadow .14s ease, transform .14s ease; }
   .step:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
@@ -106,7 +106,7 @@
   .step h3 { font-size: 15px; margin: 13px 0 7px; }
   .step p { font-size: 13.5px; color: var(--ink-2); line-height: 1.6; }
 
-  /* hold the line: guardrail cards */
+  /* hold the line — guardrail cards */
   .guardrails { column-count: 2; column-gap: 14px; }
   .gr-group { break-inside: avoid; margin-bottom: 14px; background: color-mix(in srgb, var(--neg) 3.5%, var(--surface)); border: 1px solid color-mix(in srgb, var(--neg) 16%, var(--line)); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow-sm); }
   .gr-group .eyebrow { color: var(--neg); display: flex; align-items: center; gap: 8px; margin-bottom: 13px; font-size: 10px; }
@@ -116,7 +116,7 @@
   .gr-group li::before { content: ""; position: absolute; left: 0; top: 7px; width: 7px; height: 2px; border-radius: 1px; background: color-mix(in srgb, var(--neg) 55%, var(--line-strong)); }
   @media (max-width: 900px) { .guardrails { column-count: 1; } }
 
-  /* rounds: L1 -> L2 */
+  /* rounds — L1 -> L2 */
   .roundmap { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
   .roundmap .rc { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow-sm); transition: box-shadow .14s ease, transform .14s ease; }
   .roundmap .rc:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
@@ -383,8 +383,6 @@
 
     <div class="side-foot">
       <div class="sync" id="sync" data-state="init"><span class="dot"></span><span id="syncText">checking&hellip;</span></div>
-      <button class="themetoggle" id="refreshBtn" type="button" hidden>Refresh</button>
-      <button class="themetoggle" id="signOutBtn" type="button" hidden>Sign out</button>
       <button class="themetoggle" id="themeToggle" type="button"><span id="themeIcon">&#9681;</span><span id="themeLabel">Theme</span></button>
     </div>
   </nav>
@@ -404,25 +402,6 @@
       <button class="btn primary" id="modalOk" type="button">OK</button>
     </div>
   </div>
-</div>
-
-<div class="modal-wrap" id="loginGate" hidden>
-  <form class="modal" id="loginForm" aria-labelledby="loginTitle">
-    <h3 id="loginTitle">Sign in</h3>
-    <div class="modal-body">Sign in with your hiring-tracker account to read and save the shared roster and scorecards.</div>
-    <div class="field" style="margin-top:14px">
-      <label for="loginUser">Username</label>
-      <input type="text" id="loginUser" autocomplete="username" required />
-    </div>
-    <div class="field" style="margin-top:10px">
-      <label for="loginPass">Password</label>
-      <input type="password" id="loginPass" autocomplete="current-password" required />
-    </div>
-    <div class="modal-body" id="loginError" style="color:var(--neg);display:none;margin-top:10px"></div>
-    <div class="modal-acts">
-      <button class="btn primary" id="loginSubmit" type="submit">Sign in</button>
-    </div>
-  </form>
 </div>
 
 <script>
@@ -517,7 +496,7 @@
   ];
 
   /* ============================================================
-     FACTORS: role decides which apply.
+     FACTORS — role decides which apply.
      engineer: 5   senior: 6   lead: 9   architect: 10
      hint: string | {all} | {engineer,senior,lead,architect}
      ============================================================ */
@@ -699,7 +678,7 @@
     view: "overview",
     cards: {}, cardsRemote: {}, cardsCol: null,
     cands: {}, candsRemote: {}, candsCol: null,
-    db: null, downloads: null, syncState: "local", backendMode: false,
+    db: null, downloads: null, syncState: "local",
     current: null, filter: "", candFilter: "",
     debriefCandidate: "", dashFilter: "", dashCand: "", dashPanelist: "",
     addingCand: false
@@ -792,23 +771,19 @@
     rec.updatedAt = Date.now();
     S.cards[rec.id] = rec; lsSet(LS_CARDS, S.cards);
     if (S.cardsCol) { try { S.cardsCol.doc(rec.id).set(JSON.parse(JSON.stringify(rec))).catch(function () { toast("Saved on this browser. Shared sync failed."); }); } catch (e) {} }
-    if (S.backendMode) { apiFetch("/api/scorecards/" + rec.id, { method: "PUT", body: rec }).catch(function () { toast("Saved on this browser. Shared sync failed."); }); }
   }
   function removeCard(id) {
     delete S.cards[id]; lsSet(LS_CARDS, S.cards);
     if (S.cardsCol) { try { S.cardsCol.doc(id).delete().catch(function () {}); } catch (e) {} }
-    if (S.backendMode) { apiFetch("/api/scorecards/" + id, { method: "DELETE" }).catch(function () {}); }
   }
   function persistCand(rec) {
     rec.updatedAt = Date.now();
     S.cands[rec.id] = rec; lsSet(LS_CANDS, S.cands);
     if (S.candsCol) { try { S.candsCol.doc(rec.id).set(JSON.parse(JSON.stringify(rec))).catch(function () {}); } catch (e) {} }
-    if (S.backendMode) { apiFetch("/api/candidates/" + rec.id, { method: "PUT", body: rec }).catch(function () { toast("Saved on this browser. Shared sync failed."); }); }
   }
   function removeCand(id) {
     delete S.cands[id]; lsSet(LS_CANDS, S.cands);
     if (S.candsCol) { try { S.candsCol.doc(id).delete().catch(function () {}); } catch (e) {} }
-    if (S.backendMode) { apiFetch("/api/candidates/" + id, { method: "DELETE" }).catch(function () {}); }
   }
   function clearRoster() {
     var ids = {};
@@ -820,9 +795,6 @@
       Object.keys(ids).forEach(function (id) {
         try { S.candsCol.doc(id).delete().catch(function () {}); } catch (e) {}
       });
-    }
-    if (S.backendMode) {
-      Object.keys(ids).forEach(function (id) { apiFetch("/api/candidates/" + id, { method: "DELETE" }).catch(function () {}); });
     }
   }
   function clearScorecards() {
@@ -836,9 +808,6 @@
         try { S.cardsCol.doc(id).delete().catch(function () {}); } catch (e) {}
       });
     }
-    if (S.backendMode) {
-      Object.keys(ids).forEach(function (id) { apiFetch("/api/scorecards/" + id, { method: "DELETE" }).catch(function () {}); });
-    }
   }
   function clearAll() {
     var n = Object.keys(mergeStores(S.candsRemote, S.cands)).length;
@@ -846,7 +815,7 @@
     if (!n && !m) { toast("Nothing to clear"); return; }
     confirmModal({
       title: "Clear ALL data?",
-      body: "WARNING: this clears everything.\n\n" +
+      body: "WARNING — this clears everything.\n\n" +
         n + " candidate(s) and " + m + " scorecard(s), with every rating and all feedback, will be permanently deleted for everyone sharing this page.\n\n" +
         "This cannot be undone. Export to Excel first if you want a copy.",
       okText: "Yes, clear everything",
@@ -866,9 +835,9 @@
   }
 
   /* ============================================================
-     DB capability (running as a claude.ai Artifact)
+     DB capability
      ============================================================ */
-  function initDbArtifact() {
+  (function initDb() {
     var c = window.claude;
     if (!c || typeof c.use !== "function") { setSync("local", "Local only"); return; }
     c.use("db").then(function (db) {
@@ -887,126 +856,20 @@
         S.candsRemote = m; setSync("shared", "Shared"); softRefresh();
       }, function () {});
     }, function () { setSync("local", "Local only"); });
-  }
-  function initDownloadsArtifact() {
+  })();
+  (function initDownloads() {
     var c = window.claude;
     if (!c || typeof c.use !== "function") return;
     try {
       c.use("downloads").then(function (d) { if (d) S.downloads = d; }, function () {});
     } catch (e) {}
-  }
+  })();
   function softRefresh() { if (S.view === "candidates" || S.view === "scorecard" || S.view === "debrief") render(); }
   function setSync(state, text) {
     S.syncState = state;
     var el = document.getElementById("sync");
     if (el) { el.setAttribute("data-state", state); document.getElementById("syncText").textContent = text; }
   }
-
-  /* ============================================================
-     Backend sync (running as a plain page, e.g. GitHub Pages):
-     a small JWT-protected API is the only thing that talks to the
-     shared Google Drive Excel file. See server/README.md.
-     ============================================================ */
-  // TODO: set this to your deployed backend's URL (server/README.md, step 5).
-  var API_BASE = "http://localhost:8787";
-  var LS_TOKEN = "dhg.token";
-
-  function getToken() { try { return sessionStorage.getItem(LS_TOKEN) || ""; } catch (e) { return ""; } }
-  function setToken(t) { try { sessionStorage.setItem(LS_TOKEN, t); } catch (e) {} }
-  function clearToken() { try { sessionStorage.removeItem(LS_TOKEN); } catch (e) {} }
-
-  function apiFetch(path, opts) {
-    opts = opts || {};
-    var headers = {};
-    var k;
-    for (k in (opts.headers || {})) headers[k] = opts.headers[k];
-    var token = getToken();
-    if (token) headers["Authorization"] = "Bearer " + token;
-    var body = opts.body;
-    if (body != null && typeof body !== "string") { headers["Content-Type"] = "application/json"; body = JSON.stringify(body); }
-    return fetch(API_BASE + path, { method: opts.method || "GET", headers: headers, body: body }).then(function (res) {
-      if (res.status === 401) {
-        clearToken(); showLoginGate();
-        var authErr = new Error("Not signed in"); authErr.code = "unauthorized"; throw authErr;
-      }
-      return res.text().then(function (text) {
-        var json = null; try { json = text ? JSON.parse(text) : null; } catch (e2) {}
-        if (!res.ok) throw new Error((json && json.error) || ("Request failed: " + res.status));
-        return json;
-      });
-    });
-  }
-
-  function showLoginGate() {
-    var gate = document.getElementById("loginGate");
-    if (gate) gate.hidden = false;
-  }
-  function hideLoginGate() {
-    var gate = document.getElementById("loginGate");
-    if (gate) gate.hidden = true;
-  }
-
-  function pullState(force) {
-    return apiFetch("/api/state" + (force ? "?force=1" : "")).then(function (data) {
-      var cm = {}, sm = {};
-      (data.candidates || []).forEach(function (c) { if (c.id) cm[c.id] = c; });
-      (data.cards || []).forEach(function (c) { if (c.id) sm[c.id] = c; });
-      S.candsRemote = cm; S.cardsRemote = sm;
-      setSync("shared", "Shared"); softRefresh();
-    }, function () {
-      setSync("local", "Sync failed"); toast("Could not reach the shared sheet. Showing what's saved on this browser.");
-    });
-  }
-
-  function initBackendSync() {
-    S.backendMode = true;
-    var refreshBtn = document.getElementById("refreshBtn");
-    var signOutBtn = document.getElementById("signOutBtn");
-    refreshBtn.hidden = false; signOutBtn.hidden = false;
-    refreshBtn.addEventListener("click", function () { setSync("local", "Refreshing…"); pullState(true); });
-    signOutBtn.addEventListener("click", function () { clearToken(); showLoginGate(); setSync("local", "Signed out"); });
-
-    var form = document.getElementById("loginForm");
-    var errEl = document.getElementById("loginError");
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      errEl.style.display = "none";
-      var username = document.getElementById("loginUser").value.trim();
-      var password = document.getElementById("loginPass").value;
-      apiFetch("/auth/login", { method: "POST", body: { username: username, password: password } }).then(function (data) {
-        setToken(data.token);
-        hideLoginGate();
-        setSync("local", "Connecting…");
-        pullState(true);
-        startPolling();
-      }, function (err) {
-        errEl.textContent = err.message || "Could not sign in.";
-        errEl.style.display = "block";
-      });
-    });
-
-    if (!getToken()) { showLoginGate(); setSync("local", "Signed out"); return; }
-    hideLoginGate();
-    setSync("local", "Connecting…");
-    pullState(true);
-    startPolling();
-  }
-
-  var pollingStarted = false;
-  function startPolling() {
-    if (pollingStarted) return;
-    pollingStarted = true;
-    setInterval(function () { pullState(false); }, Number(30000));
-    document.addEventListener("visibilitychange", function () {
-      if (document.visibilityState === "visible") pullState(false);
-    });
-  }
-
-  (function initSync() {
-    var c = window.claude;
-    if (c && typeof c.use === "function") { initDbArtifact(); initDownloadsArtifact(); }
-    else { initBackendSync(); }
-  })();
 
   /* ============================================================
      THEME
@@ -1100,7 +963,7 @@
   function mean(nums) { return nums.length ? nums.reduce(function (a, b) { return a + b; }, 0) / nums.length : null; }
 
   /* ============================================================
-     VIEW: OVERVIEW
+     VIEW — OVERVIEW
      ============================================================ */
   function viewOverview() {
     var out = masthead("The hiring process", "Two rounds, L1 and L2. HR shares the candidate roster; panelists rate the factors for the role and write feedback; the hiring manager decides at debrief.");
@@ -1130,7 +993,7 @@
 
     var STEPS = [
       ["01", "Candidates", "Import the roster from HR's Excel file (first sheet). Add follow-up candidates by hand. Set each candidate's status."],
-      ["02", "Scorecard", "One per panelist per round. In L1, rate each factor for the role 1-5 and write feedback for every factor you rate, the factors grow with the role. L2 is a single write-up plus a recommendation."],
+      ["02", "Scorecard", "One per panelist per round. In L1, rate each factor for the role 1–5 and write feedback for every factor you rate — the factors grow with the role. L2 is a single write-up plus a recommendation."],
       ["03", "Debrief", "All scorecards for a candidate side by side. The hiring manager reads the evidence and sets the status to Selected or Rejected."]
     ];
     out += h("section", { "class": "block" },
@@ -1145,7 +1008,7 @@
   }
 
   /* ============================================================
-     VIEW: WHAT TO LOOK FOR
+     VIEW — WHAT TO LOOK FOR
      ============================================================ */
   function viewLevels() {
     var out = masthead("What to look for", "The four roles, and how to tell each one from the level below.");
@@ -1160,8 +1023,8 @@
     out += h("div", { "class": "roles" }, ROLES.map(function (r) {
       var dcells = "";
       if (r.key !== "engineer") {
-        if (r.below) dcells += h("div", { "class": "d" }, h("span", { "class": "eyebrow" }, "Different from the level below") + h("p", null, esc(r.below)));
-        if (r.above) dcells += h("div", { "class": "d" }, h("span", { "class": "eyebrow" }, "The line to the level above") + h("p", null, esc(r.above)));
+        if (r.below && r.below !== "—") dcells += h("div", { "class": "d" }, h("span", { "class": "eyebrow" }, "Different from the level below") + h("p", null, esc(r.below)));
+        if (r.above && r.above !== "—") dcells += h("div", { "class": "d" }, h("span", { "class": "eyebrow" }, "The line to the level above") + h("p", null, esc(r.above)));
       }
       var facs = factorsForRole(r.key);
       return h("article", { "class": "role", id: "role-" + r.key },
@@ -1185,7 +1048,7 @@
   }
 
   /* ============================================================
-     IMPORT: Excel / paste
+     IMPORT — Excel / paste
      ============================================================ */
   var COLMAP = [
     ["sno", function (n) { return n === "sno" || n === "srno" || n === "slno" || n === "s" || n === "serialno" || n === "no"; }],
@@ -1226,12 +1089,12 @@
   }
   function importRows(mappedList) {
     var fresh = mappedList.map(candFromMapped).filter(Boolean);
-    if (!fresh.length) { toast("No candidates found in that file, roster unchanged"); return; }
+    if (!fresh.length) { toast("No candidates found in that file — roster unchanged"); return; }
     var existingCount = Object.keys(mergeStores(S.candsRemote, S.cands)).length;
     function doImport() {
       clearRoster();
       fresh.forEach(function (c) { persistCand(c); });
-      toast("Roster replaced: " + fresh.length + " candidate(s) imported");
+      toast("Roster replaced — " + fresh.length + " candidate(s) imported");
       render();
     }
     if (!existingCount) { doImport(); return; }
@@ -1287,7 +1150,7 @@
   }
 
   /* ============================================================
-     VIEW: DASHBOARD
+     VIEW — DASHBOARD
      ============================================================ */
   function l1Summary(l1) {
     if (!l1.length) return { html: "<span class=\"mini p\">pending</span>", m: null };
@@ -1307,7 +1170,7 @@
   }
 
   function exportWorkbook() {
-    if (typeof XLSX === "undefined") { toast("Excel library still loading, try again in a moment"); return; }
+    if (typeof XLSX === "undefined") { toast("Excel library still loading — try again in a moment"); return; }
     var cands = allCands();
     var cards = allCards().slice().sort(function (a, b) {
       return (a.candidate || "").localeCompare(b.candidate || "")
@@ -1351,11 +1214,11 @@
       return parts.join("\n\n---\n\n");
     }
 
-    // Sheet: Full record. One row per candidate, L1 + L2 status and every factor's feedback
+    // Sheet — Full record: one row per candidate, L1 + L2 status and every factor's feedback
     var frHead = ["S.No", "Name", "Role", "Designation", "Location", "Day", "Time", "Mode", "Phone", "Email", "Resume link",
       "L1 status", "L2 status", "Final status",
       "L1 panelist(s)", "L1 date(s)", "L1 outcome", "L1 avg /5"];
-    FACTORS.forEach(function (f) { frHead.push(f.name); frHead.push(f.name + " - feedback"); });
+    FACTORS.forEach(function (f) { frHead.push(f.name); frHead.push(f.name + " — feedback"); });
     frHead.push("L1 overall comments", "L2 panelist(s)", "L2 date(s)", "L2 outcome", "L2 write-up");
     var frRows = cands.map(function (c) {
       var mine = cardsFor(c);
@@ -1382,7 +1245,7 @@
     });
     var ws0 = XLSX.utils.aoa_to_sheet([frHead].concat(frRows));
 
-    // Sheet 1: Candidates. Roster, both round statuses, final decision
+    // Sheet 1 — Candidates: roster, both round statuses, final decision
     var cHead = ["S.No", "Name", "Role", "Designation", "Location", "Day", "Time", "Mode",
       "Panelist", "Phone", "Email", "Resume link", "L1 status", "L2 status", "Final status"];
     var cRows = cands.map(function (c) {
@@ -1396,10 +1259,10 @@
       { wch: 10 }, { wch: 9 }, { wch: 18 }, { wch: 14 }, { wch: 24 }, { wch: 40 },
       { wch: 12 }, { wch: 12 }, { wch: 12 }];
 
-    // Sheet 2: Scorecards. One row per scorecard, every factor rating + feedback
+    // Sheet 2 — Scorecards: one row per scorecard, every factor rating + feedback
     var sHead = ["Candidate", "Role", "Round", "Panelist", "Date", "Outcome",
       "L1 status", "L2 status", "Avg /5", "Factors rated"];
-    FACTORS.forEach(function (f) { sHead.push(f.name); sHead.push(f.name + " - feedback"); });
+    FACTORS.forEach(function (f) { sHead.push(f.name); sHead.push(f.name + " — feedback"); });
     sHead.push("Overall comments / L2 write-up");
     var sRows = cards.map(function (x) {
       var st = cardStats(x), cst = statusOf(x);
@@ -1416,7 +1279,7 @@
     });
     var ws2 = XLSX.utils.aoa_to_sheet([sHead].concat(sRows));
 
-    // Sheet 3: Feedback detail. One row per rated factor, plus each overall note
+    // Sheet 3 — Feedback detail: one row per rated factor, plus each overall note
     var fHead = ["Candidate", "Role", "Round", "Panelist", "Date", "Outcome",
       "L1 status", "L2 status", "Factor", "Rating", "Feedback"];
     var fRows = [];
@@ -1455,7 +1318,7 @@
       }).then(function () { toast("Exported " + fname); }, function (err) {
         var code = err && err.code;
         if (code === "declined") { toast("Export cancelled"); return; }
-        toast("Export failed" + (code ? ": " + code : ""));
+        toast("Export failed" + (code ? " — " + code : ""));
       });
       return;
     }
@@ -1464,12 +1327,12 @@
   }
 
   function viewDashboard() {
-    var out = masthead("Dashboard", "The whole pipeline in one view: where every candidate stands across L1, L2 and the final decision.");
+    var out = masthead("Dashboard", "The whole pipeline in one view — where every candidate stands across L1, L2 and the final decision.");
 
     out += h("div", { "class": "toolbar" },
       h("button", { "class": "btn primary", "data-act": "exportXlsx" }, "Export to Excel") +
       h("span", { style: "font-size:12px;color:var(--ink-2)" },
-        "Roster, L1 / L2 status, every scorecard rating and all feedback, one .xlsx to keep after the loop."));
+        "Roster, L1 / L2 status, every scorecard rating and all feedback — one .xlsx to keep after the loop."));
 
     var cands = allCands();
 
@@ -1557,7 +1420,7 @@
   }
 
   /* ============================================================
-     VIEW: CANDIDATES
+     VIEW — CANDIDATES
      ============================================================ */
   function viewCandidates() {
     var out = masthead("Candidates", "The interview roster. Import HR's Excel file, add follow-up candidates, and set each candidate's L1 and L2 status.");
@@ -1661,7 +1524,7 @@
     return { total: facs.length, rated: vals.length, avg: mean(vals), counts: counts };
   }
   function cardLean(st, overall) {
-    if (st.rated < Math.ceil(st.total * 0.6)) return { cls: "mid", tag: "Incomplete", line: "Rate more factors: " + st.rated + " of " + st.total + " done." };
+    if (st.rated < Math.ceil(st.total * 0.6)) return { cls: "mid", tag: "Incomplete", line: "Rate more factors — " + st.rated + " of " + st.total + " done." };
     var a = st.avg || 0;
     if (a >= 3.5) return { cls: "pos", tag: "Leaning select", line: "Average " + a.toFixed(1) + " / 5." };
     if (a >= 2.75) return { cls: "mid", tag: "Borderline", line: "Average " + a.toFixed(1) + " / 5. Decide at debrief." };
@@ -1669,7 +1532,7 @@
   }
 
   /* ============================================================
-     VIEW: SCORECARD
+     VIEW — SCORECARD
      ============================================================ */
   function ensureCurrent() { if (!S.current) S.current = blankCard(); ensureCard(S.current); }
 
@@ -1708,11 +1571,11 @@
     );
 
     out += h("p", { style: "font-size:12px;color:var(--ink-2);margin:0 0 12px" },
-      "<strong>" + esc(rd.n + " · " + rd.name + ": " + roleLabel(sc.role)) + "</strong>. " + esc(rd.purpose));
+      "<strong>" + esc(rd.n + " · " + rd.name + " — " + roleLabel(sc.role)) + "</strong>. " + esc(rd.purpose));
 
     if (simple) {
       out += h("div", { style: "max-width:800px" },
-        h("span", { "class": "eyebrow", style: "display:block;margin-bottom:6px" }, "Outcome: sets the candidate's L2 status") +
+        h("span", { "class": "eyebrow", style: "display:block;margin-bottom:6px" }, "Outcome — sets the candidate's L2 status") +
         h("div", { "class": "recbtns", style: "max-width:440px" }, recButtons(sc)) +
         h("span", { "class": "eyebrow", style: "display:block;margin:16px 0 6px" }, "L2 feedback") +
         "<textarea data-f=\"comments\" placeholder=\"Validate the L1 findings. Go deeper on architecture. For Lead and above, clearly say Lead or individual contributor. Give your recommendation and why.\" style=\"width:100%;min-height:240px;resize:vertical;font-family:var(--font-ui);font-size:13px;line-height:1.55;color:var(--ink);background:var(--surface);border:1px solid var(--line-strong);border-radius:8px;padding:11px\">" + esc(sc.comments || "") + "</textarea>"
@@ -1732,7 +1595,7 @@
           rateButtons(f.key, val)
         ) +
         (factorHint(f, sc.role) ? h("p", { "class": "f-hint" }, esc(factorHint(f, sc.role))) : "") +
-        "<textarea data-fnote=\"" + f.key + "\" placeholder=\"Feedback: what you asked and what the candidate actually said or did\">" + esc(sc.notes[f.key] || "") + "</textarea>"
+        "<textarea data-fnote=\"" + f.key + "\" placeholder=\"Feedback — what you asked and what the candidate actually said or did\">" + esc(sc.notes[f.key] || "") + "</textarea>"
       );
     }).join("");
 
@@ -1776,7 +1639,7 @@
           "<b>" + st.counts[r.v] + "</b></span>";
       }).join("")) +
       h("div", { "class": "lean " + lean.cls }, h("span", { "class": "tag" }, lean.tag) + h("div", null, esc(lean.line))) +
-      h("span", { "class": "eyebrow", style: "display:block;margin-bottom:6px" }, "Outcome: sets the candidate's " + ((ROUND_BY_KEY[sc.round] || {}).n || "") + " status") +
+      h("span", { "class": "eyebrow", style: "display:block;margin-bottom:6px" }, "Outcome — sets the candidate's " + ((ROUND_BY_KEY[sc.round] || {}).n || "") + " status") +
       h("div", { "class": "recbtns" }, recBtns) +
       h("span", { "class": "eyebrow", style: "display:block;margin:14px 0 6px" }, "Overall comments") +
       "<textarea data-f=\"comments\" placeholder=\"The headline, and anything that does not fit a single factor\">" + esc(sc.comments || "") + "</textarea>"
@@ -1814,7 +1677,7 @@
   }
 
   /* ============================================================
-     VIEW: DEBRIEF
+     VIEW — DEBRIEF
      ============================================================ */
   function debriefNames() {
     var seen = {}, list = [];
@@ -1942,9 +1805,9 @@
     var allAvgs = cards.map(function (c) { return cardStats(c).avg; }).filter(function (x) { return x != null; });
     var m2 = mean(allAvgs);
     var sugg = (m2 != null && m2 >= 3.5 && pos >= allRecs.length && allRecs.length) ? "Panel leans select"
-      : (m2 != null && m2 < 2.75) ? "Panel leans reject" : "Mixed, needs a call";
+      : (m2 != null && m2 < 2.75) ? "Panel leans reject" : "Mixed — needs a call";
     out += h("div", { "class": "callout" },
-      "<strong>Panel summary</strong>: " + cards.length + " scorecard(s), overall average " + (m2 == null ? "-" : m2.toFixed(1)) + " / 5, " +
+      "<strong>Panel summary</strong> — " + cards.length + " scorecard(s), overall average " + (m2 == null ? "–" : m2.toFixed(1)) + " / 5, " +
       pos + " of " + (allRecs.length || 0) + " leaning select. " + esc(sugg) + ". The hiring manager sets the status above."
     );
 
@@ -1975,19 +1838,19 @@
     var ta = document.createElement("textarea");
     ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
     document.body.appendChild(ta); ta.select();
-    try { document.execCommand("copy"); toast(msg || "Markdown copied"); } catch (e) { toast("Copy failed, select manually"); }
+    try { document.execCommand("copy"); toast(msg || "Markdown copied"); } catch (e) { toast("Copy failed — select manually"); }
     document.body.removeChild(ta);
   }
   function copyMarkdown() {
     ensureCurrent();
     var sc = S.current, rd = ROUND_BY_KEY[sc.round], st = cardStats(sc);
     var L = [];
-    L.push("# " + rd.n + " · " + rd.name + ": " + (sc.candidate || "(unnamed)"));
+    L.push("# " + rd.n + " · " + rd.name + " — " + (sc.candidate || "(unnamed)"));
     L.push("");
     L.push("- **Role:** " + roleLabel(sc.role));
     L.push("- **Panelist:** " + (sc.panelist || "?"));
     L.push("- **Date:** " + (sc.date || ""));
-    L.push("- **Recommendation:** " + (sc.overall ? REC_LABEL[sc.overall] : "-"));
+    L.push("- **Recommendation:** " + (sc.overall ? REC_LABEL[sc.overall] : "—"));
     L.push("");
     if (sc.round === "l2") {
       L.push("## L2 feedback");
@@ -2027,7 +1890,7 @@
     Array.prototype.forEach.call(document.querySelectorAll(".navbtn"), function (b) {
       b.setAttribute("aria-current", b.getAttribute("data-view") === S.view ? "true" : "false");
     });
-    // Only jump to top when the page itself changed (nav / open / debrief):
+    // Only jump to top when the page itself changed (nav / open / debrief) —
     // not on every in-page interaction (rating, filter, save, status change...).
     if (S.view !== _lastRenderedView) { window.scrollTo(0, 0); _lastRenderedView = S.view; }
   }
