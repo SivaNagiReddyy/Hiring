@@ -19,7 +19,7 @@ var api = express.Router();
 api.use(auth.requireAuth);
 
 api.use(function (req, res, next) {
-  if (!sheetReady) return res.status(503).json({ error: "Not connected to the SharePoint sheet yet. Check the server logs." });
+  if (!sheetReady) return res.status(503).json({ error: "Not connected to the shared sheet yet. Check the server logs." });
   next();
 });
 
@@ -95,7 +95,7 @@ var PORT = process.env.PORT || 8787;
 var sheetReady = false;
 
 // The server listens immediately: /health and /auth/login work even if the
-// SharePoint connection is down or misconfigured, so login problems and
+// Drive connection is down or misconfigured, so login problems and
 // sheet-connection problems are never confused with each other, and a
 // transient Graph outage degrades to "sheet routes return 503" rather than
 // taking the whole service down.
@@ -104,13 +104,13 @@ app.listen(PORT, function () { console.log("Listening on :" + PORT); });
 function connectSheet() {
   sheet.init().then(function () {
     sheetReady = true;
-    console.log("Connected to the SharePoint workbook.");
+    console.log("Connected to the shared Google Drive workbook.");
     // Background refresh so GET /api/state is normally served from a warm cache.
     setInterval(function () {
       sheet.pullAll(true).catch(function (e) { console.error("Background sheet refresh failed:", e.message); });
     }, Number(process.env.SHEET_POLL_INTERVAL_MS) || 30000);
   }).catch(function (e) {
-    console.error("Could not connect to the SharePoint workbook (will retry in 15s):", e.message);
+    console.error("Could not connect to the Google Drive workbook (will retry in 15s):", e.message);
     setTimeout(connectSheet, 15000);
   });
 }
