@@ -416,9 +416,9 @@
       key: "engineer", code: "DE", title: "Data Engineer",
       scope: "Can build reliable and scalable data solutions, understand data requirements, troubleshoot issues, and deliver quality data pipelines. Needs direction on unclear, cross-team, or design-heavy work.",
       above: "A Senior does not need the problem explained. They scope it, pick the approach, and own a full domain in production.",
-      ready: ["Writes correct SQL that runs — logic and syntax", "Debugs a failed job on their own", "Good on at least one platform, curious about the others", "Learning something now and can say what"],
+      ready: ["Writes correct SQL that runs: logic and syntax", "Debugs a failed job on their own", "Good on at least one platform, curious about the others", "Learning something now and can say what"],
       notYet: ["Needs detailed requirements and guidance before being able to start the work", "Can talk about solutions but cannot build them", "Uses jargon that does not hold up on the next question"],
-      l1: "Check core hands-on — SQL, one platform, a full pipeline. Communication should be clear. Team leading is not expected at this level.",
+      l1: "Check core hands-on: SQL, one platform, a full pipeline. Communication should be clear. Team leading is not expected at this level.",
       l2: "Confirm the hands-on. See how the candidate handles a production issue and takes feedback. Check if the role matches what they want next."
     },
     {
@@ -426,7 +426,7 @@
       scope: "Owns a domain or a major pipeline end to end. Takes design decisions and can defend the trade-offs. Unblocks other engineers.",
       below: "A Senior does the Data Engineer work without supervision, and is answerable when the domain breaks.",
       above: "A Lead works beyond their own scope. They set the patterns other teams follow, and they lead people, not only projects.",
-      ready: ["Takes an unclear problem and comes back with a plan and trade-offs", "Good PySpark — transformations, joins, optimisation", "Builds for failure — idempotency, safe backfills, monitoring", "Has worked on more than one platform", "Mentors juniors without being told to"],
+      ready: ["Takes an unclear problem and comes back with a plan and trade-offs", "Good PySpark: transformations, joins, optimisation", "Builds for failure: idempotency, safe backfills, monitoring", "Has worked on more than one platform", "Mentors juniors without being told to"],
       notYet: ["Designs solutions but misses failure cases or cost", "Strong on one platform, thin on the rest", "Influence stops at their own assigned work", "Describes production issues but does not dig into the root cause"],
       l1: "Check depth across SQL, modelling, pipelines, scale and reliability. The candidate should own decisions. Early mentoring signs. Communication should be consultative. Some breadth beyond one platform.",
       l2: "Confirm the depth. Go deeper on design. Check stakeholder communication and how they grow juniors."
@@ -435,10 +435,10 @@
       key: "lead", code: "LDE", title: "Lead Data Engineer",
       scope: "Owns a platform area across several pipelines and teams. Sets the patterns others build on. Leads the projects and the engineers on them.",
       below: "A Lead is answerable for an area's reliability and roadmap, through other people, not only their own hands.",
-      above: "An Architect works at the whole data org level — reference architectures, technology strategy, multi-year decisions, not one area.",
+      above: "An Architect works at the whole data org level: reference architectures, technology strategy, multi-year decisions, not one area.",
       ready: ["Deep on one platform and can reason across the others, not just 'academic'", "Takes an end-to-end migration case and designs the full architecture", "Answers hold up when you dig deep, and they can give an alternate design", "Honest about where the team is falling behind, and drives the changes to fix it", "Works with agentic / GenAI patterns, not only the word"],
       notYet: ["Working as an individual contributor. Leadership is only a resume line", "Strong on one platform, academic on the rest", "Architecture answers stay high level when pushed", "Support / maintenance background with little build work", "Comes across as a strong Senior, not a Lead"],
-      l1: "The full screen — hands-on SQL / PySpark / modelling, platform breadth, architecture and scenario depth when you dig deep, real and current team leading and mentoring, consultative communication, certifications and learning mindset, currency in data and AI, and motivation. The candidate must come across as a Lead, not a strong Senior or an individual contributor.",
+      l1: "The full screen: hands-on SQL / PySpark / modelling, platform breadth, architecture and scenario depth when you dig deep, real and current team leading and mentoring, consultative communication, certifications and learning mindset, currency in data and AI, and motivation. The candidate must come across as a Lead, not a strong Senior or an individual contributor.",
       l2: "Validate every L1 finding. Push harder on architecture and alternate design patterns. Clearly say Lead or individual contributor. Check that the candidate can name the gaps in their current tooling and has a real path towards Architect."
     },
     {
@@ -448,7 +448,7 @@
       ready: ["Owns a reference architecture that teams actually build to", "Broad and current across the data and AI landscape", "Weighs technical ideals against cost, risk and delivery", "Explains architecture in business terms and back", "Grows leads and seniors"],
       notYet: ["Deep in one technology but narrow across the stack", "Strategy documents that do not change what teams do", "Cannot connect architecture to cost or business outcome"],
       l1: "Screen weighted to architecture, technology selection and influence. Also check real hands-on depth, breadth across the data and AI landscape, and how the candidate sets direction and manages stakeholders.",
-      l2: "Org-level judgement — reference architectures, getting standards adopted, executive communication, cost and risk trade-offs, and growing the leadership layer."
+      l2: "Org-level judgement: reference architectures, getting standards adopted, executive communication, cost and risk trade-offs, and growing the leadership layer."
     }
   ];
   var ROLE_BY_KEY = {}; ROLES.forEach(function (r) { ROLE_BY_KEY[r.key] = r; });
@@ -464,7 +464,7 @@
   function roleLabel(key) { var r = ROLE_BY_KEY[key]; return r ? r.title : key; }
 
   var ROUNDS = [
-    { key: "l1", n: "L1", name: "Technical & fit screen", who: "Panelist — Lead / Senior engineer", dur: "45–60 min",
+    { key: "l1", n: "L1", name: "Technical & fit screen", who: "Panelist: Lead / Senior engineer", dur: "45–60 min",
       purpose: "First round. Hands-on technical depth, communication, leadership evidence, platform breadth, learning mindset and motivation. Rate the factors for the role and write feedback. A clear pass moves the candidate to L2." },
     { key: "l2", n: "L2", name: "Validation & leadership fit", who: "Hiring manager / senior leader", dur: "45–60 min",
       purpose: "Second round. Validate the L1 findings, go deeper on architecture, and for Lead and above make the Lead-or-individual-contributor call. The hiring manager makes the final Select / Reject decision." }
@@ -474,7 +474,7 @@
 
   var GUARDRAILS = [
     { group: "How to interview", items: [
-      "Vet with real problems, not a checklist of tools. Tools change, the fundamentals do not — and a list of vendor names is the weakest signal here.",
+      "Vet with real problems, not a checklist of tools. Tools change, the fundamentals do not, and a list of vendor names is the weakest signal here.",
       "Do not require your exact stack. A strong engineer moves between comparable warehouses and orchestrators quickly, so over-filtering on tool names screens out good people.",
       "Dig deep on every technical answer. Jargon or one-word answers that do not hold up on a follow-up are a red flag, not a pass. Weak SQL dressed up with a framework is still weak SQL.",
       "Do not judge the candidate only on past work. Ask what they would do differently now, and why."
@@ -515,8 +515,8 @@
     {
       key: "sql", name: "Hands-on SQL & PySpark", roles: ALL4,
       hint: {
-        engineer: "Writes correct SQL for a multi-table problem — approach and syntax. Knows Spark basics.",
-        senior: "Efficient SQL on large data. Good PySpark — joins, optimisation, skew handling. Fixes a slow query.",
+        engineer: "Writes correct SQL for a multi-table problem: approach and syntax. Knows Spark basics.",
+        senior: "Efficient SQL on large data. Good PySpark: joins, optimisation, skew handling. Fixes a slow query.",
         lead: "Fluent SQL, reviews others' queries. Deep PySpark, tunes real jobs, sets the patterns.",
         architect: "Guides SQL and engine patterns by workload and cost."
       }
@@ -525,7 +525,7 @@
       key: "model", name: "Data modelling & warehousing", roles: ALL4,
       hint: {
         engineer: "Star schema, grain, keys, SCD basics. Warehousing fundamentals applied to a real case, not only named.",
-        senior: "Models a domain for many consumers — SCD2, late-arriving data, layered / medallion design.",
+        senior: "Models a domain for many consumers: SCD2, late-arriving data, layered / medallion design.",
         lead: "Owns the domain model and its data contracts. Sets modelling conventions others follow.",
         architect: "Modelling standards and a semantic layer across domains."
       }
@@ -533,7 +533,7 @@
     {
       key: "platform", name: "Platform knowledge & breadth", roles: ALL4,
       hint: {
-        engineer: "Real, hands-on knowledge of at least one platform — Databricks, Microsoft Fabric, Snowflake, or a cloud-native stack. Not tutorial-level.",
+        engineer: "Real, hands-on knowledge of at least one platform: Databricks, Microsoft Fabric, Snowflake, or a cloud-native stack. Not tutorial-level.",
         senior: "Solid on a primary platform, plus working exposure to more than one.",
         lead: "Reasons across platforms. Maps concepts between Databricks / Snowflake / Fabric / AWS / Azure / GCP. The others are not purely academic.",
         architect: "Broad, current view of the platform landscape and where each one fits."
@@ -550,7 +550,7 @@
       key: "decision", name: "Technical decision-making & questioning the status quo", roles: ["senior", "lead", "architect"],
       hint: {
         senior: "Owns technical decisions. Questions past decisions with a proper alternative.",
-        lead: "Makes build / buy / defer calls. Challenges the defaults — their own past work and how things are done here.",
+        lead: "Makes build / buy / defer calls. Challenges the defaults: their own past work and how things are done here.",
         architect: "Owns technology-selection decisions at org scale. Challenges org-level defaults with a reasoned alternative."
       }
     },
@@ -558,14 +558,14 @@
       key: "lead", name: "Team leading & mentoring", roles: ["lead", "architect"],
       hint: {
         lead: "Leads a team today and is answerable for their output. Names people they grew, and how. Real interest, not extra load.",
-        architect: "Grows the leadership layer — develops leads, not only individual engineers."
+        architect: "Grows the leadership layer: develops leads, not only individual engineers."
       }
     },
     {
       key: "currency", name: "Currency in Data & AI (incl. GenAI)", roles: ["lead", "architect"],
       hint: {
         lead: "Knows the recent releases on their main platform. Works with agentic / GenAI patterns, not only the word.",
-        architect: "Has a view on where the platform vendor is going, and on GenAI in the data platform — tooling, governance, risk."
+        architect: "Has a view on where the platform vendor is going, and on GenAI in the data platform: tooling, governance, risk."
       }
     },
     {
